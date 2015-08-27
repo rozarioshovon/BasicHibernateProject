@@ -25,11 +25,17 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 
-	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<beans:property name="url"
+	<!-- <beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"> 
+		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" /> <beans:property 
+		name="url" value="jdbc:mysql://localhost:3306/test2" /> <beans:property name="username" 
+		value="root" /> <beans:property name="password" value="" /> </beans:bean> -->
+
+	<beans:bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<beans:property name="driverClass" value="com.mysql.jdbc.Driver" />
+		<beans:property name="jdbcUrl"
 			value="jdbc:mysql://localhost:3306/test2" />
-		<beans:property name="username" value="root" />
+		<beans:property name="user" value="root" />
 		<beans:property name="password" value="" />
 	</beans:bean>
 
